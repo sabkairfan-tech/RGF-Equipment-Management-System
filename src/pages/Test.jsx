@@ -41,7 +41,7 @@ Assign Equipment
 
 </div>
 
-<div className="flex flex-col items-center justify-center h-full">
+<div className="flex justify-center ">
 <table className="w-full table-fixed  bg-white shadow overflow-hidden">
 <thead className="bg-gray-100">
     <tr>
@@ -82,68 +82,73 @@ Assign Equipment
 </div>
  {/* MODAL */}
       {showModel && (
-        <div className="fixed inset-0  flex items-center justify-center">
-          <div className="bg-white p-6 rounded w-400">
-            <h2 className="text-xl font-bold mb-4">
-              {editId ? "Edit Equipment" : "Add Equipment"}
-            </h2>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div className="w-[90%] max-w-[800px] bg-white p-6 rounded-lg shadow-xl">
+    
+    <h2 className="text-xl font-bold mb-6 text-center">
+      {editId ? "Edit Equipment" : "Add Equipment"}
+    </h2>
 
-            <input
-              className="w-xl border p-2 mb-2"
-              placeholder="Serial No"
-              value={form.serialNo}
-              onChange={(e) =>
-                setForm({ ...form, serialNo: e.target.value })
-              }
-            />
+    <div className="flex flex-col gap-3">
+      
+      <input
+        className="w-full border p-2 rounded"
+        placeholder="Serial No"
+        value={form.serialNo}
+        onChange={(e) =>
+          setForm({ ...form, serialNo: e.target.value })
+        }
+      />
 
-            <input
-              className="w-xl  border p-2 mb-2"
-              placeholder="Name"
-              value={form.name}
-              onChange={(e) =>
-                setForm({ ...form, name: e.target.value })
-              }
-            />
+      <input
+        className="w-full border p-2 rounded"
+        placeholder="Name"
+        value={form.name}
+        onChange={(e) =>
+          setForm({ ...form, name: e.target.value })
+        }
+      />
 
-            <input
-              className="w-xl  border p-2 mb-2"
-              placeholder="Category"
-              value={form.category}
-              onChange={(e) =>
-                setForm({ ...form, category: e.target.value }) 
-              }
-            />
+      <input
+        className="w-full border p-2 rounded"
+        placeholder="Category"
+        value={form.category}
+        onChange={(e) =>
+          setForm({ ...form, category: e.target.value })
+        }
+      />
 
-            <select
-              className="w-xl  border p-2 mb-4"
-              value={form.status}
-              onChange={(e) =>
-                setForm({ ...form, status: e.target.value })
-              }
-            >
-              <option>Available</option>
-              <option>Assigned</option>
-              <option>Repair</option>
-            </select>
+      <select
+        className="w-full border p-2 rounded"
+        value={form.status}
+        onChange={(e) =>
+          setForm({ ...form, status: e.target.value })
+        }
+      >
+        <option>Available</option>
+        <option>Assigned</option>
+        <option>Repair</option>
+      </select>
 
-            <div className="flex justify-end gap-2">
-              <button
-                onClick={() => setModel(false)}
-                className="px-4 py-2 bg-gray-300 rounded"
-              >
-                Cancel
-              </button>
+    </div>
 
-              <button
-               
-                className="px-4 py-2 bg-blue-600 text-white rounded"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="flex justify-center gap-3 mt-6">
+      <button
+        onClick={() => setModel(false)}
+        className="px-4 py-2 bg-gray-300 rounded"
+      >
+        Cancel
+      </button>
+
+      <button
+        className="px-4 py-2 bg-blue-600 text-white rounded"
+      >
+        Save
+      </button>
+    </div>
+
+  </div>
+</div>
       )}
 </>
 
