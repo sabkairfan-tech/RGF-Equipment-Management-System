@@ -1,59 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Eye, EyeOff, ShieldCheck } from "lucide-react";
-
-export default function Login() {
-
-  const navigate = useNavigate();
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({...formData,[e.target.name]: e.target.value,});
-  };
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    // Temporary Login
-    if (
-      formData.username === "admin" &&
-      formData.password === "123"
-    ) {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          name: "Admin",
-          role: "admin",
-        })
-      );
-
-      navigate("/");
-    } else {
-      alert("Invalid Username or Password");
-    }
-  };
-
-  return (
-    <div className="flex h-screen w-full bg-slate-100">
-      <div className=" bg-blue-500 w-dvh justify-center items-center flex overflow-hidden">
-    <img src="/public/image.png" alt="Login"  />
-  
-      </div >
-
-      <div className="w-dvh justify-center items-center flex">
-      {/* Login Card */}
+  {/* Login Card */}
         <div>
           <div className="">
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-500 rounded-full shadow-lg">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full shadow-lg">
             <ShieldCheck size={40} className="text-white" />
           </div>
 
@@ -126,9 +77,3 @@ export default function Login() {
         </div>
        
       </div>
-      </div >
-
-      
-    </div>
-  );
-}
